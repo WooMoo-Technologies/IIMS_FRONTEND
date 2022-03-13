@@ -1,0 +1,24 @@
+#wrap {
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+}
+
+img {
+  max-width: 40px;
+  max-height: 40px;
+  border-radius: 50%; }
+
+#pic {
+  display: flex;
+  flex-direction: column; }
+
+div {
+  margin-left: 5px; }
+
+h6 {
+  font-size: 1rem; }
+
+.mat-icon {
+  font-size: 20px;
+  width: 10px; }

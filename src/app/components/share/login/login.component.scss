@@ -1,0 +1,188 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.bdy {
+  display: flex;
+  min-height: 100vh;
+  background-color: #1451DD;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 400px;
+  background-color: white;
+  font-family: sans-serif;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+.content-contenaire {
+  max-width: 300px;
+  margin: 30px auto;
+  text-align: center;
+  color: #697887;
+}
+
+.top-container {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.top-container > img {
+  width: 40%;
+  padding-bottom: 45px;
+}
+
+.top-container > h2 {
+  padding-bottom: 20px;
+}
+
+.top-container > p > a {
+  margin-left: 5px;
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.top-container > p > a:hover {
+  color: #000000;
+}
+
+.input {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+
+
+.checkbox  {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.checkbox label {
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.btn-login {
+  width: 70%;
+  background-color: #2e91fc;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+  text-decoration: none;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+
+
+.content-contenaire > p > a {
+  text-decoration: none;
+  color: #697887;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.content-contenaire > p > a:hover {
+  color: #000000;
+}
+
+.img-container {
+  width: 50%;
+  background-size: cover;
+}
+
+.toronto-logo {
+  width: 85%;
+  margin: 370px auto;
+}
+
+.toronto {
+  width: 45%;
+  margin-bottom: 20px;
+}
+
+.toronto img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.welcome {
+  width: 90%;
+  //text-align: auto;
+  color: white;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media screen and (max-width: 380px) {
+  .container {
+    max-width: 300px;
+    max-height: 500px;
+  }
+
+  input[type=email], input[type=password] {
+    width: 72%;
+  }
+
+  .btn-login {
+    width: 80%;
+  }
+
+  .checkbox  {
+    padding-left: 10%;
+  }
+
+  .img-container {
+    display: none;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media screen and (max-width: 600px) {
+  .container {
+    height: 650px;
+  }
+
+
+  .img-container {
+    display: none;
+  }
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and 768px) */
+@media screen and ( max-width: 768px) and (min-width: 600px) {
+  .container {
+    height: 520px;
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.4);
+  }
+  .img-container {
+    display: none;
+  }
+}
+
+/* Medium devices (landscape tablets, 800px and up) */
+@media screen and (min-width: 800px) {
+  .container {
+    width: 800px;
+    height: 520px;
+    display: flex;
+    //display-wrap: wrap;
+    justify-content: center;
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.4);
+  }
+  .content-contenaire {
+    width: 50%;
+  }}

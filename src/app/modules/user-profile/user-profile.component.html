@@ -1,0 +1,34 @@
+<div class="form-main-bg-1">
+  <div class="form-body-1">
+    <div class="form-header">
+      <div class="form-header-title">
+        <span>User Profile</span>
+      </div>
+    </div>
+
+    <form #form (ngSubmit)="updateUser()" [formGroup]="updateUserForm" class="form-container">
+      <div>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>User name</mat-label>
+            <input  matInput formControlName="username" placeholder="username">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>password</mat-label>
+            <input formControlName="password" matInput placeholder="password">
+          </mat-form-field>
+        </div>
+
+
+      </div>
+      <div class="form-row-btn">
+        <div class="row-btn">
+          <button id="cancelbtn" mat-raised-button type="reset">Reset</button>
+          <button  id="savebtn" mat-raised-button type="submit">Update</button>
+          <button *ngIf="apiResponse" [class.btn-spinner]="apiResponse" id="spinner" mat-raised-button></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="bdy">
+<div class="container">
+  <div class="content-contenaire">
+    <div class="top-container">
+      <img src="https://kajabi-app-assets.kajabi-cdn.com/assets/admin_login_logo-670e098f06687a6a631c1daee33da3e395c1139760edc24429e84e709d97641e.png" alt="img">
+      <h2> Sign In </h2>
+    </div>
+    <form (ngSubmit)="signIn()" [formGroup]="LoginForm">
+      <div class="input">
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input formControlName="username" matInput placeholder="pat@example.com" required type="text">
+          <mat-error *ngIf="LoginForm.get('username')?.touched && LoginForm.get('username')?.invalid">Please enter a
+            valid username
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input formControlName="password"  [type]="hide ? 'password' : 'text'" matInput>
+          <button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" mat-icon-button
+                  matSuffix>
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="LoginForm.get('password')?.touched && LoginForm.get('password')?.invalid">Please enter a
+            valid password
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" id="remember">
+        <label for="remember">Remember Me</label>
+      </div>
+      <button [disabled]="LoginForm.invalid" class="btn-login" color="primary" type="submit" mat-raised-button>Login</button>
+    </form>
+  </div>
+  <div class="img-container" style="background-image: url('https://kajabi-app-assets.kajabi-cdn.com/assets/cycles/toronto/background-75b378483363871729427517e4ce5fbf6658d8c6b7bd5dd83f9c551f24e8180f.jpg');">
+    <div class="toronto-logo">
+      <div class="toronto">
+        <img src="https://kajabi-app-assets.kajabi-cdn.com/assets/cycles/toronto/logo-bb7958016c33ca6aa5461500fb4c31198aef27668c7a9779788c7ce1a17ed013.png" alt="img-one">
+      </div>
+      <div class="welcome">
+        <p>Explore all the exciting new capabilities and enhancements we've made to Iphen over the last 8 years!</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

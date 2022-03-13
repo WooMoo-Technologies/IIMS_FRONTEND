@@ -1,0 +1,20 @@
+<div [ngClass]="style" class="main bg-skin-ternary">
+  <div class="content">
+    <div class="image " >
+      <img src='{{image}}' alt="image">
+    </div>
+    <div style="height: 15px"></div>
+    <div  class="title text-skin-primary "  *ngIf="title!==''" >
+      {{title}}
+    </div>
+    <div  class="massage text-skin-primary">
+      <div>{{message}}</div>
+    </div>
+    <div style="height: 30px"></div>
+    <div  class="buttons">
+      <button mat-raised-button id="btnNo" color="warn" (click)="onDismiss() " *ngIf="btnUnaccepted!==''">{{btnUnaccepted}}</button>
+      <button mat-raised-button id="btnYes" color="primary" (click)="onConfirm()" *ngIf="btnAccept!==''">{{btnAccept}}</button>
+    </div>
+  </div>
+</div>
+

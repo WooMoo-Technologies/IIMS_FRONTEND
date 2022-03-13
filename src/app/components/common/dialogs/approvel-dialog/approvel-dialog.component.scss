@@ -1,0 +1,85 @@
+
+hr {
+  width: 80%;
+}
+.main{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+  }
+
+  .image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  .image img {
+    height: 30%;
+    width: 30%;
+  }
+
+  .massage {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 1rem;
+    word-break: break-word;
+    width: 80%;
+  }
+
+  .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10px;
+  }
+}
+.delete{
+  .buttons{
+    flex-direction: row-reverse;
+    #btnYes{
+      background-color: #ff3b3b;
+    }
+    #btnNo{
+      background-color: dodgerblue;
+    }
+  }
+}
+.alerts {
+
+}
+.confirm {
+  .buttons{
+    flex-direction: row-reverse;
+    #btnYes{
+      background-color: dodgerblue;
+    }
+    #btnNo{
+      background-color: #ff3b3b;
+    }
+  }
+
+}
+.error{
+
+}

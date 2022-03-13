@@ -1,0 +1,21 @@
+<mat-toolbar class="shadow w-full bg-skin-primary text-skin-light  justify-between overflow-hidden">
+  <div class="flex w-1/5 h-full justify-start items-center">
+    <app-client></app-client>
+    <button mat-button class="menu-button" (click)="sendNavState()" disableRipple>
+      <mat-icon>{{ isMenuOpen ? 'menu_open' : 'menu' }}</mat-icon>
+    </button>
+  </div>
+  <div class="justify-center">
+  </div>
+  <div class="flex h-full items-center justify-end">
+    <div class="user">
+
+    </div>
+    <div  class="w-12 items-center justify-center">
+    </div>
+
+    <div class="items-center">
+      <app-user-profile></app-user-profile>
+    </div>
+  </div>
+</mat-toolbar>

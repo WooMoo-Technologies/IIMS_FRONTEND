@@ -1,0 +1,44 @@
+<div  class="form-main-bg-1">
+  <div class="form-body-1">
+    <div class="form-header">
+      <div class="form-header-title2 title-2 flex flex-col items-center">
+        <span class="text-center">Welcome to Iphen Item Management</span>
+      </div>
+    </div>
+    <form #form class="form-container">
+      <div>
+        <div class="form-row flex flex-col items-center">
+
+
+          <div class="wrapper ">
+            <div class="card flex flex-col items-center">
+              <h2 class="card-title">Percentage</h2>
+                            <circle-progress
+                              [percent]=percent
+                              [radius]="100"
+                              [outerStrokeWidth]="16"
+                              [innerStrokeWidth]="8"
+                              [outerStrokeColor]="'#1451DD'"
+                              [innerStrokeColor]="'#3498DB'"
+                              [animation]="true"
+                              [animationDuration]="300"
+                              titleFontSize='35'
+                              subtitleFontSize='17'
+                              titleColor='#1451DD'
+                              subtitleColor='#3498DB'
+                            ></circle-progress>
+            </div>
+            <div class="card flex flex-col items-center">
+              <h2 class="card-title">Total Items</h2>
+              <div class="inner-card" >
+                <h1 class="txt-percent" style="color: white">{{percent}}</h1>
+                <h4 class="sub-txt-percent" style="color: white">Items</h4>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+::ng-deep mat-dialog-container {
+  border-radius: 10px !important;
+  padding: 0  !important;
+  background: none!important;
+}
+::ng-deep .no-line .mat-form-field-underline{
+  display: none;
+  width: 0;
+  padding: 0;
+  margin: 0;
+}
+::ng-deep .toast-container {
+  box-shadow: none !important;
+}
+
+::ng-deep .toast {
+  box-shadow: none !important;
+}
+
