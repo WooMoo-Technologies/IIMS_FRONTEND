@@ -9,7 +9,7 @@
       <div class="input">
         <mat-form-field appearance="fill">
           <mat-label>Username</mat-label>
-          <input formControlName="username" matInput placeholder="pat@example.com" required type="text">
+          <input class="matinput" formControlName="username" matInput placeholder="pat@example.com" required type="text">
           <mat-error *ngIf="LoginForm.get('username')?.touched && LoginForm.get('username')?.invalid">Please enter a
             valid username
           </mat-error>

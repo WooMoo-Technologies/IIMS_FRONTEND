@@ -3,6 +3,9 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {ItemsService} from "../../services/items.service";
 import {componentDTO} from "../../dto/componentDTO";
+import {ApprovelDialogComponent} from "../../../../components/common/dialogs/approvel-dialog/approvel-dialog.component";
+import {ApprovalDialogConfig} from "../../../../components/common/dialogs/approvel-dialog/model/ApprovalDialogConfig";
+import {MatDialog} from "@angular/material/dialog";
 
 
 
@@ -22,7 +25,8 @@ export class AddNewItemComponent implements OnInit {
   brand: any;
 
   constructor(private http: HttpClient,
-              private itemsservice : ItemsService) { }
+              private itemsservice : ItemsService,
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.itemDetailsForm = new FormGroup({
@@ -57,6 +61,27 @@ export class AddNewItemComponent implements OnInit {
       this.itemDetailsForm.get('componetCode')?.value
     )).subscribe(res=>{
       console.log(res)
+      if (res.responseCode==='200'){
+        const addapproval = this.dialog.open(ApprovelDialogComponent, {
+          width: '350px',
+          data: new ApprovalDialogConfig('Alert', 'Successfully', 'Item Successfully Added')
+        });
+        addapproval.afterClosed().subscribe(approve => {
+          if (approve) {
+            console.log('Item Successfully Added');
+          }
+        });
+      }else{
+        const notapproval = this.dialog.open(ApprovelDialogComponent, {
+          width: '350px',
+          data: new ApprovalDialogConfig('Error', 'Unuccessful', 'Item Not Added')
+        });
+        notapproval.afterClosed().subscribe(approve => {
+          if (approve) {
+            console.log('Item Not Added');
+          }
+        });
+      }
     });
   }
 }
