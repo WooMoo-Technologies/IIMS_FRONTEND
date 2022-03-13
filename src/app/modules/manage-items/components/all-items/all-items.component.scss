@@ -1,0 +1,24 @@
+
+#buttons {
+  width: auto;
+  padding-right:15px;
+  display: flex;
+  justify-content: space-between;
+  button{
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    mat-icon{
+      font-size: 20px;
+    }
+  }
+}
+
+
+
+
+
+

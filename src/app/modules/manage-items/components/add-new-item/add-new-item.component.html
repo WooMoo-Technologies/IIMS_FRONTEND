@@ -1,0 +1,57 @@
+
+<div  class="form-main-bg-1">
+  <div class="form-body-1">
+    <div class="form-header">
+      <div class="form-header-title">
+        <span>Add New Component</span>
+      </div>
+    </div>
+
+    <form #form (ngSubmit)="saveItems()" [formGroup]="itemDetailsForm" class="form-container">
+      <div>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Component Name</mat-label>
+            <input  matInput formControlName="componetName" placeholder="componetName">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Component Desc</mat-label>
+            <input formControlName="componetDesc" matInput placeholder="componetDesc">
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Image URL</mat-label>
+            <input  matInput formControlName="imageURL" placeholder="imageURL">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>QTY</mat-label>
+            <input  matInput formControlName="qty" placeholder="qty">
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Unit Price</mat-label>
+            <input  matInput formControlName="unitPrice" placeholder="unitPrice">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Component Code</mat-label>
+            <input  matInput formControlName="componetCode" placeholder="componetCode">
+          </mat-form-field>
+        </div>
+
+      </div>
+      <div class="form-row-btn">
+        <div class="row-btn">
+          <button id="cancelbtn" mat-raised-button type="reset">Reset</button>
+          <button  id="savebtn" mat-raised-button type="submit">Save</button>
+          <button *ngIf="apiResponse" [class.btn-spinner]="apiResponse" id="spinner" mat-raised-button></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
