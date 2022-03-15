@@ -6,6 +6,7 @@ import {componentDTO} from "../../dto/componentDTO";
 import {ApprovelDialogComponent} from "../../../../components/common/dialogs/approvel-dialog/approvel-dialog.component";
 import {ApprovalDialogConfig} from "../../../../components/common/dialogs/approvel-dialog/model/ApprovalDialogConfig";
 import {MatDialog} from "@angular/material/dialog";
+import {Observable} from "rxjs";
 
 
 
@@ -23,6 +24,8 @@ export class AddNewItemComponent implements OnInit {
   apiResponse!: false;
   itemDetailsForm!: FormGroup;
   brand: any;
+  selectedFiles?: FileList;
+  fileInfos?: Observable<any>;
 
   constructor(private http: HttpClient,
               private itemsservice : ItemsService,
@@ -36,7 +39,7 @@ export class AddNewItemComponent implements OnInit {
       componetDesc: new FormControl('', [
         Validators.required
       ]),
-      imageURL: new FormControl('', [
+      componetimage: new FormControl('', [
         Validators.required
       ]),
       qty: new FormControl('', [
@@ -52,14 +55,14 @@ export class AddNewItemComponent implements OnInit {
   }
 
   saveItems() {
-    this.itemsservice.saveComponents(new componentDTO(
+    this.itemsservice.addUser(new componentDTO(
       this.itemDetailsForm.get('componetName')?.value,
       this.itemDetailsForm.get('componetDesc')?.value,
-      this.itemDetailsForm.get('imageURL')?.value,
+      this.itemDetailsForm.get('componetimage')?.value,
       this.itemDetailsForm.get('qty')?.value,
       this.itemDetailsForm.get('unitPrice')?.value,
       this.itemDetailsForm.get('componetCode')?.value
-    )).subscribe(res=>{
+    ),JSON.parse(this.itemDetailsForm.get('componetimage')?.value)).subscribe(res=>{
       console.log(res)
       if (res.responseCode==='200'){
         const addapproval = this.dialog.open(ApprovelDialogComponent, {
@@ -83,5 +86,25 @@ export class AddNewItemComponent implements OnInit {
         });
       }
     });
+  }
+
+  uploadFile(event: Event) {
+    // this.selectedFiles = event.target.addEventListener(this.fileInfos);
+    const file = (event.target as HTMLInputElement)?.files?.[0].name;
+    console.log(file);
+
+    this.itemDetailsForm.setValue({
+
+        componetimage: file,
+
+    });
+    // this.itemDetailsForm.get('componetimage').updateValueAndValidity()
+    //
+    // // File Preview
+    // const reader = new FileReader();
+    // reader.onload = () => {
+    //   this.preview = reader.result as string;
+    // }
+    // reader.readAsDataURL(file)
   }
 }

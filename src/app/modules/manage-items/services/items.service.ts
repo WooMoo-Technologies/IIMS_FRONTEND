@@ -14,23 +14,38 @@ export class ItemsService {
 
   constructor(private http: HttpClient,private cookieService: CookieService) { }
 
-  saveComponents(componentdto: componentDTO): Observable<any>{
+  // saveComponents(componentdto: componentDTO): Observable<any>{
+  //
+  //   return this.http.post<any>(this.Url+'/add', {
+  //     componetName:componentdto.componetName,
+  //     componetDesc:componentdto.componetDesc,
+  //     imageURL:componentdto.imageURL,
+  //     qty:componentdto.qty,
+  //     unitPrice:componentdto.unitPrice,
+  //     componetCode:componentdto.componetCode
+  //
+  //   }, {
+  //     headers:new HttpHeaders({
+  //       'Content-Type':  'application/json',
+  //       'Authorization': 'Bearer ' + JSON.parse(this.cookieService.get('token'))
+  //     })
+  //   });
+  //
+  // }
 
-    return this.http.post<any>(this.Url+'/add', {
-      componetName:componentdto.componetName,
-      componetDesc:componentdto.componetDesc,
-      imageURL:componentdto.imageURL,
-      qty:componentdto.qty,
-      unitPrice:componentdto.unitPrice,
-      componetCode:componentdto.componetCode
+  addUser(componentdto: componentDTO, componetimage: File): Observable<any> {
+    const formData: any = new FormData();
+    formData.append("componentdto", componentdto);
+    formData.append("componetimage", componetimage);
 
-    }, {
+    return this.http.post<any>(this.Url+'/add', formData, {
       headers:new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'Bearer ' + JSON.parse(this.cookieService.get('token'))
-      })
-    });
+        'responseType': 'json',
+        // 'Content-Type':  'application/json',
+        'Authorization': 'Bearer ' + JSON.parse(this.cookieService.get('token')),
 
+      })
+    })
   }
 
   getAllComponents(pageIndex: string, pageSize: string): Observable<any> {

@@ -1,7 +1,7 @@
 export class componentDTO {
   private _componetName: string;
   private _componetDesc: string;
-  private _imageURL: string;
+  private _imageURL : string;
   private _qty: string;
   private _unitPrice: string;
   private _componetCode: string;

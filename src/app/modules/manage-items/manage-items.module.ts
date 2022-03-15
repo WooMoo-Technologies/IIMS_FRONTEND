@@ -23,6 +23,7 @@ import {UpdateItemsComponent} from './components/update-items/update-items.compo
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatSortModule} from "@angular/material/sort";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MaterialFileInputModule} from "ngx-material-file-input";
 
 
 @NgModule({
@@ -35,26 +36,27 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     exports: [
         AllItemsComponent
     ],
-  imports: [
-    CommonModule,
-    ManageItemsRoutingModule,
-    MatProgressSpinnerModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatAutocompleteModule,
-    MatRadioModule,
-    MatButtonModule,
-    MatSelectModule,
-    MatTableModule,
-    MatToolbarModule,
-    MatPaginatorModule,
-    SharedModule,
-    HttpClientModule,
-    MatDialogModule,
-    MatSortModule,
-    MatCheckboxModule
-  ]
+    imports: [
+        CommonModule,
+        ManageItemsRoutingModule,
+        MatProgressSpinnerModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatAutocompleteModule,
+        MatRadioModule,
+        MatButtonModule,
+        MatSelectModule,
+        MatTableModule,
+        MatToolbarModule,
+        MatPaginatorModule,
+        SharedModule,
+        HttpClientModule,
+        MatDialogModule,
+        MatSortModule,
+        MatCheckboxModule,
+        MaterialFileInputModule
+    ]
 })
 export class ManageItemsModule { }
