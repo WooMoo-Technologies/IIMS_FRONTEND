@@ -9,14 +9,12 @@ import {MatDialog} from "@angular/material/dialog";
 import {Observable} from "rxjs";
 
 
-
 @Component({
   selector: 'app-add-new-item',
   templateUrl: './add-new-item.component.html',
   styleUrls: ['./add-new-item.component.scss']
 })
 export class AddNewItemComponent implements OnInit {
-
 
 
   idLoading = true;
@@ -26,10 +24,11 @@ export class AddNewItemComponent implements OnInit {
   brand: any;
   selectedFiles?: FileList;
   fileInfos?: Observable<any>;
-
+  fileObj:any
   constructor(private http: HttpClient,
-              private itemsservice : ItemsService,
-              public dialog: MatDialog) { }
+              private itemsservice: ItemsService,
+              public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
     this.itemDetailsForm = new FormGroup({
@@ -48,11 +47,18 @@ export class AddNewItemComponent implements OnInit {
       unitPrice: new FormControl('', [
         Validators.required
       ]),
-      componetCode  : new FormControl('', [
+      componetCode: new FormControl('', [
         Validators.required
       ]),
     });
   }
+
+  uploadFile(event: Event) {
+    const file = (event.target as HTMLInputElement)?.files?.[0].name;
+    console.log(file)
+    this.fileObj=((event.target as HTMLInputElement)?.files?.[0])
+
+  };
 
   saveItems() {
     this.itemsservice.addUser(new componentDTO(
@@ -62,49 +68,17 @@ export class AddNewItemComponent implements OnInit {
       this.itemDetailsForm.get('qty')?.value,
       this.itemDetailsForm.get('unitPrice')?.value,
       this.itemDetailsForm.get('componetCode')?.value
-    ),JSON.parse(this.itemDetailsForm.get('componetimage')?.value)).subscribe(res=>{
+    ),this.fileObj).subscribe(res=>{
       console.log(res)
       if (res.responseCode==='200'){
-        const addapproval = this.dialog.open(ApprovelDialogComponent, {
-          width: '350px',
-          data: new ApprovalDialogConfig('Alert', 'Successfully', 'Item Successfully Added')
-        });
-        addapproval.afterClosed().subscribe(approve => {
-          if (approve) {
-            console.log('Item Successfully Added');
-          }
-        });
+        console.log("sucess")
       }else{
-        const notapproval = this.dialog.open(ApprovelDialogComponent, {
-          width: '350px',
-          data: new ApprovalDialogConfig('Error', 'Unuccessful', 'Item Not Added')
-        });
-        notapproval.afterClosed().subscribe(approve => {
-          if (approve) {
-            console.log('Item Not Added');
-          }
-        });
+        console.log("Nop")
       }
     });
+
   }
 
-  uploadFile(event: Event) {
-    // this.selectedFiles = event.target.addEventListener(this.fileInfos);
-    const file = (event.target as HTMLInputElement)?.files?.[0].name;
-    console.log(file);
 
-    this.itemDetailsForm.setValue({
 
-        componetimage: file,
-
-    });
-    // this.itemDetailsForm.get('componetimage').updateValueAndValidity()
-    //
-    // // File Preview
-    // const reader = new FileReader();
-    // reader.onload = () => {
-    //   this.preview = reader.result as string;
-    // }
-    // reader.readAsDataURL(file)
-  }
 }

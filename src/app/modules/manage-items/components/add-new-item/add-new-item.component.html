@@ -12,22 +12,19 @@
         <div class="form-row">
           <mat-form-field appearance="outline">
             <mat-label>Component Name</mat-label>
-            <input  matInput formControlName="componetName" placeholder="componetName">
+            <input  matInput formControlName="componetName" placeholder="componetName" ngDefaultControl>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>Component Desc</mat-label>
-            <input formControlName="componetDesc" matInput placeholder="componetDesc">
+            <input formControlName="componetDesc" matInput placeholder="componetDesc" ngDefaultControl>
           </mat-form-field>
         </div>
         <div class="form-row">
 
-          <mat-form-field appearance="outline" formControlName="componetimage">
+          <mat-form-field appearance="outline" formControlName="componetimage" ngDefaultControl>
             <mat-label>Image URL</mat-label>
-<!--            <input  matInput type="file" formControlName="componetimage" (change)="uploadFile($event)" placeholder="Image URL">-->
-            <ngx-mat-file-input formControlName="componetimage" (change)="uploadFile($event)" placeholder="imageURL" ></ngx-mat-file-input>
-<!--            <input matInput  formControlName="componetimage" (change)="uploadFile($event)" placeholder="Image URL">-->
-<!--            <input type="file" formControlName="componetimage" multiple (change)="uploadFile($event)" />-->
+            <ngx-mat-file-input formControlName="componetimage" (change)="uploadFile($event)" placeholder="imageURL" ngDefaultControl></ngx-mat-file-input>
             <mat-icon matSuffix>folder</mat-icon>
           </mat-form-field>
 
@@ -35,7 +32,7 @@
 
           <mat-form-field appearance="outline">
             <mat-label>QTY</mat-label>
-            <input  matInput formControlName="qty" placeholder="qty">
+            <input  matInput formControlName="qty" placeholder="qty" ngDefaultControl>
           </mat-form-field>
         </div>
 

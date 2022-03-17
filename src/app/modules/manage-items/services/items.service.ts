@@ -33,17 +33,23 @@ export class ItemsService {
   //
   // }
 
-  addUser(componentdto: componentDTO, componetimage: File): Observable<any> {
-    const formData: any = new FormData();
-    formData.append("componentdto", componentdto);
-    formData.append("componetimage", componetimage);
+  addUser(componentdto: componentDTO, componetimage:any): Observable<any> {
 
+
+    const formData: any = new FormData();
+
+    formData.append("componetName", componentdto.componetName);
+    formData.append("componetDesc", componentdto.componetDesc);
+    formData.append("qty", componentdto.qty);
+    formData.append("unitPrice", componentdto.unitPrice);
+    formData.append("componetCode", componentdto.componetCode);
+    formData.append("componetimage",componetimage,componetimage.name);
+    console.log("udara3")
+    console.log(componetimage)
     return this.http.post<any>(this.Url+'/add', formData, {
       headers:new HttpHeaders({
-        'responseType': 'json',
-        // 'Content-Type':  'application/json',
-        'Authorization': 'Bearer ' + JSON.parse(this.cookieService.get('token')),
 
+        'Authorization': 'Bearer ' + JSON.parse(this.cookieService.get('token')),
       })
     })
   }
