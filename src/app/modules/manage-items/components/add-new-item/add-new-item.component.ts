@@ -33,22 +33,22 @@ export class AddNewItemComponent implements OnInit {
   ngOnInit(): void {
     this.itemDetailsForm = new FormGroup({
       componetName: new FormControl('', [
-        Validators.required
+        Validators.required, Validators.minLength(3)
       ]),
       componetDesc: new FormControl('', [
-        Validators.required
+        Validators.required, Validators.minLength(3)
       ]),
       componetimage: new FormControl('', [
         Validators.required
       ]),
       qty: new FormControl('', [
-        Validators.required
+        Validators.required, Validators.minLength(1)
       ]),
       unitPrice: new FormControl('', [
-        Validators.required
+        Validators.required, Validators.minLength(1)
       ]),
       componetCode: new FormControl('', [
-        Validators.required
+        Validators.required, Validators.minLength(3)
       ]),
     });
   }
@@ -72,8 +72,26 @@ export class AddNewItemComponent implements OnInit {
       console.log(res)
       if (res.responseCode==='200'){
         console.log("sucess")
+        const approval5 = this.dialog.open(ApprovelDialogComponent, {
+          width: '350px',
+          data: new ApprovalDialogConfig('Alert', 'Successfully', 'Item Added Successfully')
+        });
+        approval5.afterClosed().subscribe(approve => {
+          if (approve) {
+            console.log('Item Added Successfully');
+          }
+        });
       }else{
         console.log("Nop")
+        const approval4 = this.dialog.open(ApprovelDialogComponent, {
+          width: '350px',
+          data: new ApprovalDialogConfig('Error', 'UnSuccessful', 'Item Add Unsuccessful')
+        });
+        approval4.afterClosed().subscribe(approve => {
+          if (approve) {
+            console.log('Item Add Unsuccessful');
+          }
+        });
       }
     });
 

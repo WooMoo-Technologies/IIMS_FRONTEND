@@ -44,9 +44,8 @@ export class AllItmsComponent implements OnInit {
       searchKeyWord: new FormControl('', [
         Validators.required
       ]),
-      filter:new FormControl('', [
-        Validators.required
-      ])
+      filter:new FormControl('ALL'),
+      stateFilter:new FormControl('ACTIVATED')
     });
     this.search.pipe(
       debounceTime(SystemConfig.getDebounceTime()),

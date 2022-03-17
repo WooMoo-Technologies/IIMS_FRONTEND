@@ -19,6 +19,7 @@ export class UpdateItemsComponent implements OnInit {
   UpdateItemsFrom!: FormGroup;
   checked = false;
   disabled = false;
+  fileObj:any
 
   constructor(private http: HttpClient,
               private itemsservice : ItemsService,
@@ -30,25 +31,25 @@ export class UpdateItemsComponent implements OnInit {
   ngOnInit(): void {
     this.UpdateItemsFrom = new FormGroup({
       componetID: new FormControl('', [
-        Validators.required
+        Validators.required, Validators.minLength(3)
       ]),
       componetName: new FormControl('', [
-        Validators.required
+        Validators.required, Validators.minLength(3)
       ]),
       componetDesc: new FormControl('', [
-        Validators.required
+        Validators.required, Validators.minLength(3)
       ]),
-      imageURL: new FormControl('', [
+      componetimage: new FormControl('', [
         Validators.required
       ]),
       qty: new FormControl('', [
-        Validators.required
+        Validators.required, Validators.minLength(1)
       ]),
       unitPrice: new FormControl('', [
-        Validators.required
+        Validators.required, Validators.minLength(1)
       ]),
       componetCode  : new FormControl('', [
-        Validators.required
+        Validators.required, Validators.minLength(3)
       ]),
     });
     console.log(this.data);
@@ -64,17 +65,24 @@ export class UpdateItemsComponent implements OnInit {
     });
   }
 
+  uploadFile(event: Event) {
+    const file = (event.target as HTMLInputElement)?.files?.[0].name;
+    console.log(file)
+    this.fileObj=((event.target as HTMLInputElement)?.files?.[0])
+
+  };
+
 
   saveItemss() {
     this.itemsservice.updateComponents(new updateDTO(
       this.UpdateItemsFrom.get('componetID')?.value,
       this.UpdateItemsFrom.get('componetName')?.value,
       this.UpdateItemsFrom.get('componetDesc')?.value,
-      this.UpdateItemsFrom.get('imageURL')?.value,
+      this.UpdateItemsFrom.get('componetimage')?.value,
       this.UpdateItemsFrom.get('qty')?.value,
       this.UpdateItemsFrom.get('unitPrice')?.value,
       this.UpdateItemsFrom.get('componetCode')?.value
-    )).subscribe(res=>{
+    ),this.fileObj).subscribe(res=>{
       console.log(res)
       if (res.responseCode==='200'){
         this.dialogRef.close();

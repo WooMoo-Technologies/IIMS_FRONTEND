@@ -12,12 +12,12 @@
         <div class="form-row">
           <mat-form-field appearance="outline">
             <mat-label>Component Name</mat-label>
-            <input  matInput formControlName="componetName" placeholder="componetName" ngDefaultControl>
+            <input  matInput formControlName="componetName" placeholder="componetName" ngDefaultControl  minlength="3">
           </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>Component Desc</mat-label>
-            <input formControlName="componetDesc" matInput placeholder="componetDesc" ngDefaultControl>
+            <input formControlName="componetDesc" matInput placeholder="componetDesc" ngDefaultControl minlength="3">
           </mat-form-field>
         </div>
         <div class="form-row">
@@ -28,23 +28,21 @@
             <mat-icon matSuffix>folder</mat-icon>
           </mat-form-field>
 
-
-
           <mat-form-field appearance="outline">
             <mat-label>QTY</mat-label>
-            <input  matInput formControlName="qty" placeholder="qty" ngDefaultControl>
+            <input  matInput formControlName="qty" placeholder="qty" ngDefaultControl minlength="1">
           </mat-form-field>
         </div>
 
         <div class="form-row">
           <mat-form-field appearance="outline">
             <mat-label>Unit Price</mat-label>
-            <input  matInput formControlName="unitPrice" placeholder="unitPrice">
+            <input  matInput formControlName="unitPrice" placeholder="unitPrice" minlength="1">
           </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>Component Code</mat-label>
-            <input  matInput formControlName="componetCode" placeholder="componetCode">
+            <input  matInput formControlName="componetCode" placeholder="componetCode" minlength="3">
           </mat-form-field>
         </div>
 
