@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+  import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {ManageItemsRoutingModule} from './manage-items-routing.module';
@@ -34,7 +34,10 @@ import {MaterialFileInputModule} from "ngx-material-file-input";
         UpdateItemsComponent
     ],
     exports: [
-        AllItemsComponent
+      ManageItemsComponent,
+      AddNewItemComponent,
+      AllItemsComponent,
+      UpdateItemsComponent
     ],
     imports: [
         CommonModule,

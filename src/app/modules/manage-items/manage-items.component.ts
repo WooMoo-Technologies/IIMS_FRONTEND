@@ -6,6 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./manage-items.component.scss']
 })
 export class ManageItemsComponent implements OnInit {
+  // currentItem!: any[]
 
   constructor() { }
 

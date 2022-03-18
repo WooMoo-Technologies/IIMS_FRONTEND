@@ -15,7 +15,7 @@ export class ItemsService {
   constructor(private http: HttpClient,private cookieService: CookieService) { }
 
 
-  addUser(componentdto: componentDTO, componetimage:any): Observable<any> {
+  addUser(componentdto: componentDTO, imageURL:any): Observable<any> {
 
 
     const formData: any = new FormData();
@@ -25,9 +25,9 @@ export class ItemsService {
     formData.append("qty", componentdto.qty);
     formData.append("unitPrice", componentdto.unitPrice);
     formData.append("componetCode", componentdto.componetCode);
-    formData.append("componetimage",componetimage,componetimage.name);
+    formData.append("imageURL",imageURL,imageURL.name);
     console.log("udara3")
-    console.log(componetimage)
+    console.log(imageURL)
     return this.http.post<any>(this.Url+'/add', formData, {
       headers:new HttpHeaders({
 
@@ -36,7 +36,7 @@ export class ItemsService {
     })
   }
 
-  updateComponents(componentdto: updateDTO, componetimage:any): Observable<any>{
+  updateComponents(componentdto: updateDTO, imageURL:any): Observable<any>{
 
     const formData: any = new FormData();
 
@@ -46,7 +46,7 @@ export class ItemsService {
     formData.append("qty", componentdto.qty);
     formData.append("unitPrice", componentdto.unitPrice);
     formData.append("componetCode", componentdto.componetCode);
-    formData.append("componetimage",componetimage,componetimage.name);
+    formData.append("imageURL",imageURL,imageURL.name);
 
     return this.http.post<any>(this.Url+'/update', formData, {
       headers:new HttpHeaders({

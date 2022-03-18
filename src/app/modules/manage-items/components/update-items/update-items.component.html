@@ -13,8 +13,8 @@
       <div class="form-row">
 
         <mat-form-field appearance="outline">
-          <mat-label>componet ID</mat-label>
-          <input  matInput formControlName="componetID" placeholder="componetID" minlength="3">
+          <mat-label >componet ID</mat-label>
+          <input readonly matInput formControlName="componetID" placeholder="componetID" minlength="3">
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -31,9 +31,9 @@
           <input formControlName="componetDesc" matInput placeholder="componetDesc" minlength="3">
         </mat-form-field>
 
-        <mat-form-field appearance="outline" formControlName="componetimage" ngDefaultControl>
+        <mat-form-field appearance="outline" formControlName="imageURL" ngDefaultControl>
           <mat-label>Image URL</mat-label>
-          <ngx-mat-file-input formControlName="componetimage" (change)="uploadFile($event)" placeholder="imageURL" ngDefaultControl></ngx-mat-file-input>
+          <ngx-mat-file-input formControlName="imageURL" (change)="uploadFile($event)" placeholder="imageURL" ngDefaultControl></ngx-mat-file-input>
           <mat-icon matSuffix>folder</mat-icon>
         </mat-form-field>
 

@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Injectable, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {debounceTime, distinctUntilChanged, Subject, Subscription, timeout} from "rxjs";
@@ -13,11 +13,16 @@ import {ApprovalDialogConfig} from "../../../../components/common/dialogs/approv
 import {UpdateItemsComponent} from "../update-items/update-items.component";
 import {SystemConfig} from "../../../../util/SystemConfig";
 
+@Injectable({
+  providedIn: 'root' // It will inject this provider at the root level of the application so it can be accessed anywhere.
+})
+
 @Component({
   selector: 'app-all-items',
   templateUrl: './all-items.component.html',
   styleUrls: ['./all-items.component.scss']
 })
+
 export class AllItemsComponent implements OnInit {
   filters: Filter[] = [{key: 'ALL', value: 'All'}, {key: 'NAME', value: 'Name'}, {key: 'DESC', value: 'Desc'}, {key: 'URL', value: 'Url'}, {
     key: 'QTY', value: 'qty'},{key: 'PRICE', value: 'Price'},{key: 'CODE', value: 'Code'}];
@@ -84,11 +89,12 @@ export class AllItemsComponent implements OnInit {
     console.log($event);
   }
 
-  refreshTable(): void {
+  public refreshTable(): void {
     const searchKeyWord = this.filterDetailsForm.get('searchKeyWord')?.value;
     this.loadTable(String(this.paginator.pageIndex), String(this.paginator.pageSize));
     this.searchTable(searchKeyWord)
   }
+
 
   public loadTable(pageIndex: string, pageSize: string): void {
     this.allComponentsSub = this.itemsservice.getAllComponents(pageIndex, pageSize)
@@ -172,4 +178,5 @@ export class AllItemsComponent implements OnInit {
     this.loadTable(String(event.pageIndex), String(event.pageSize));
     this.searchTable(searchKeyWord)
   }
+
 }

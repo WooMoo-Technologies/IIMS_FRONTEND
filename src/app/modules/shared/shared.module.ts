@@ -5,6 +5,7 @@ import {SharedRoutingModule} from './shared-routing.module';
 import {SharedComponent} from './shared.component';
 import {AutoFocusDirective} from "./services/auto-focus.directive";
 import {HighlightDirective} from "./services/highlight.directive";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {HighlightDirective} from "./services/highlight.directive";
 ],
   imports: [
     CommonModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    HttpClientModule
   ]
 })
 export class SharedModule { }

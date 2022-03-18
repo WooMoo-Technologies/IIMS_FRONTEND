@@ -101,16 +101,20 @@ export class AllItmsComponent implements OnInit {
   }
 
   searchTable2(searchKeyWord: string): void {
-    this.searchComponentsSub2 = this.itemsservice2.searchComponent(searchKeyWord)
-      .pipe(timeout(4000))
-      .subscribe(result => {
-        console.log(result.content)
-        this.paginator.length = result.content.length;
-        this.dataSource = result.content;
-        this.refreshPageCount();
-      }, error => {
-        console.log(error);
-      });
+    if (searchKeyWord!=='') {
+      this.searchComponentsSub2 = this.itemsservice2.searchComponent(searchKeyWord)
+        .pipe(timeout(4000))
+        .subscribe(result => {
+          console.log(result.content)
+          this.paginator.length = result.content.length;
+          this.dataSource = result.content;
+          this.refreshPageCount();
+        }, error => {
+          console.log(error);
+        });
+    }else {
+      console.log("not search")
+    }
   }
 
   public getServerData(event: PageEvent): any {

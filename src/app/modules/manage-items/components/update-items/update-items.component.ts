@@ -31,7 +31,7 @@ export class UpdateItemsComponent implements OnInit {
   ngOnInit(): void {
     this.UpdateItemsFrom = new FormGroup({
       componetID: new FormControl('', [
-        Validators.required, Validators.minLength(3)
+        Validators.required,
       ]),
       componetName: new FormControl('', [
         Validators.required, Validators.minLength(3)
@@ -39,9 +39,7 @@ export class UpdateItemsComponent implements OnInit {
       componetDesc: new FormControl('', [
         Validators.required, Validators.minLength(3)
       ]),
-      componetimage: new FormControl('', [
-        Validators.required
-      ]),
+      imageURL: new FormControl(null),
       qty: new FormControl('', [
         Validators.required, Validators.minLength(1)
       ]),
@@ -52,6 +50,7 @@ export class UpdateItemsComponent implements OnInit {
         Validators.required, Validators.minLength(3)
       ]),
     });
+
     console.log(this.data);
 
     this.UpdateItemsFrom.setValue({
@@ -78,7 +77,7 @@ export class UpdateItemsComponent implements OnInit {
       this.UpdateItemsFrom.get('componetID')?.value,
       this.UpdateItemsFrom.get('componetName')?.value,
       this.UpdateItemsFrom.get('componetDesc')?.value,
-      this.UpdateItemsFrom.get('componetimage')?.value,
+      this.UpdateItemsFrom.get('imageURL')?.value,
       this.UpdateItemsFrom.get('qty')?.value,
       this.UpdateItemsFrom.get('unitPrice')?.value,
       this.UpdateItemsFrom.get('componetCode')?.value
