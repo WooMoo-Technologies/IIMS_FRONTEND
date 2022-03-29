@@ -15,6 +15,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {ApprovelDialogComponent} from './components/common/dialogs/approvel-dialog/approvel-dialog.component';
 import {CookieModule} from "ngx-cookie";
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     MatIconModule,
     CookieModule.forRoot(),
     FontAwesomeModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

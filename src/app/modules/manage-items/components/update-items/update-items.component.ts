@@ -34,20 +34,22 @@ export class UpdateItemsComponent implements OnInit {
         Validators.required,
       ]),
       componetName: new FormControl('', [
-        Validators.required, Validators.minLength(3)
+        Validators.required, Validators.pattern('^.{3,20}$')
       ]),
       componetDesc: new FormControl('', [
-        Validators.required, Validators.minLength(3)
+        Validators.required, Validators.pattern('^.{3,200}$')
       ]),
-      imageURL: new FormControl(null),
+      imageURL: new FormControl('', [
+        Validators.required
+      ]),
       qty: new FormControl('', [
-        Validators.required, Validators.minLength(1)
+        Validators.required, Validators.pattern('^[0-9]{1,7}$')
       ]),
       unitPrice: new FormControl('', [
-        Validators.required, Validators.minLength(1)
+        Validators.required, Validators.pattern('^[0-9]{2,7}$')
       ]),
       componetCode  : new FormControl('', [
-        Validators.required, Validators.minLength(3)
+        Validators.required, Validators.pattern('^.{3,15}$')
       ]),
     });
 

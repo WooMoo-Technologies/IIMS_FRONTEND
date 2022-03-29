@@ -46,22 +46,22 @@ export class AddNewItemComponent implements OnInit {
   ngOnInit(): void {
     this.itemDetailsForm = new FormGroup({
       componetName: new FormControl('', [
-        Validators.required, Validators.minLength(3)
+        Validators.required, Validators.pattern('^.{3,20}$')
       ]),
       componetDesc: new FormControl('', [
-        Validators.required, Validators.minLength(3)
+        Validators.required, Validators.pattern('^.{3,200}$')
       ]),
       imageURL: new FormControl('', [
         Validators.required
       ]),
       qty: new FormControl('', [
-        Validators.required, Validators.minLength(1), Validators.pattern('[0-9]')
+        Validators.required, Validators.pattern('^[0-9]{1,7}$')
       ]),
       unitPrice: new FormControl('', [
-        Validators.required, Validators.minLength(1), Validators.pattern('[0-9]')
+        Validators.required, Validators.pattern('^[0-9]{2,7}$')
       ]),
       componetCode: new FormControl('', [
-        Validators.required, Validators.minLength(3)
+        Validators.required, Validators.pattern('^.{3,15}$')
       ]),
     });
 
@@ -89,8 +89,8 @@ export class AddNewItemComponent implements OnInit {
 
   };
 
-  saveItems() {
-    this.itemsservice.addUser(new componentDTO(
+  saveItem() {
+    this.itemsservice.addComponent(new componentDTO(
       this.itemDetailsForm.get('componetName')?.value,
       this.itemDetailsForm.get('componetDesc')?.value,
       this.itemDetailsForm.get('imageURL')?.value,

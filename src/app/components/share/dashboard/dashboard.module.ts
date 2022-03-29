@@ -14,6 +14,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     MatMenuModule,
     MatSidenavModule,
     MatListModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatDialogModule
   ]
 })
 export class DashboardModule { }

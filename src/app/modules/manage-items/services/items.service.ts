@@ -15,7 +15,7 @@ export class ItemsService {
   constructor(private http: HttpClient,private cookieService: CookieService) { }
 
 
-  addUser(componentdto: componentDTO, imageURL:any): Observable<any> {
+  addComponent(componentdto: componentDTO, imageURL:any): Observable<any> {
 
 
     const formData: any = new FormData();
@@ -36,17 +36,18 @@ export class ItemsService {
     })
   }
 
-  updateComponents(componentdto: updateDTO, imageURL:any): Observable<any>{
+  updateComponents(updateCompDTO: updateDTO, imageURL:any): Observable<any>{
 
     const formData: any = new FormData();
 
-    formData.append(JSON.stringify(componentdto.componetID));
-    formData.append("componetName", componentdto.componetName);
-    formData.append("componetDesc", componentdto.componetDesc);
-    formData.append("qty", componentdto.qty);
-    formData.append("unitPrice", componentdto.unitPrice);
-    formData.append("componetCode", componentdto.componetCode);
+    formData.append("componetID",updateCompDTO.componetID);
+    formData.append("componetName", updateCompDTO.componetName);
+    formData.append("componetDesc", updateCompDTO.componetDesc);
+    formData.append("qty", updateCompDTO.qty);
+    formData.append("unitPrice", updateCompDTO.unitPrice);
+    formData.append("componetCode", updateCompDTO.componetCode);
     formData.append("imageURL",imageURL,imageURL.name);
+
 
     return this.http.post<any>(this.Url+'/update', formData, {
       headers:new HttpHeaders({

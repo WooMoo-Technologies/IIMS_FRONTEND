@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  tokenUrl: 'http://localhost:5000/api/v1/token',
-  baseUrl: 'http://localhost:5000/api/v1/componet'
+  tokenUrl: 'https://safe-shore-87617.herokuapp.com/api/v1/token',
+  baseUrl: 'https://safe-shore-87617.herokuapp.com/api/v1/componet'
 };
 
 /*
