@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "firebase": "iphen-3760c",
+    "public": "./dist/iims-frontend",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
