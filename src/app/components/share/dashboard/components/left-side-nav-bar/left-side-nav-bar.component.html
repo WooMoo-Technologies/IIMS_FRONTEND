@@ -1,14 +1,14 @@
 <mat-sidenav-container #sidenavContainer class="shadow-none" style="height: 91.5%;">
   <mat-sidenav [opened]="navState" class="bg-skin-secondary shadow-2xl" mode="side">
-    <mat-nav-list>
+    <mat-nav-list >
 
-      <mat-list-item role="listitem"  routerLinkActive="buttonActive" [routerLink]="'./home'">
-         <fa-icon [icon]="faHome" class="side-btn-icon "></fa-icon>&nbsp;Home
+      <mat-list-item [routerLink]="'./home'" role="listitem" routerLinkActive="buttonActive">
+        <fa-icon [icon]="faHome" class="side-btn-icon "></fa-icon>&nbsp;Home
       </mat-list-item>
-      <mat-list-item role="listitem"  routerLinkActive="buttonActive" [routerLink]="'./manageItems'">
+      <mat-list-item [routerLink]="'./manageItems'" role="listitem" routerLinkActive="buttonActive">
         <fa-icon [icon]="faLaptopHouse" class="side-btn-icon "></fa-icon>&nbsp;Manage Components
       </mat-list-item>
-      <mat-list-item role="listitem"  routerLinkActive="buttonActive" [routerLink]="'./userProfile'">
+      <mat-list-item [routerLink]="'./userProfile'" role="listitem" routerLinkActive="buttonActive">
         <fa-icon [icon]="faUser" class="side-btn-icon "></fa-icon>&nbsp;User Profile
       </mat-list-item>
 
@@ -16,8 +16,8 @@
 
 
   </mat-sidenav>
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
+  <mat-sidenav-content [@routeAnimations]="getRouteAnimationData(outlet)">
+      <router-outlet #outlet="outlet"></router-outlet>
   </mat-sidenav-content>
 
 </mat-sidenav-container>

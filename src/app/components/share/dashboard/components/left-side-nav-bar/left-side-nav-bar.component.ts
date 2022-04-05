@@ -1,7 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {faHome, faLaptopHouse, faUser} from '@fortawesome/free-solid-svg-icons';
-
+import {RouterOutlet} from "@angular/router";
+import { fader } from './route-animations'
 @Component({
   selector: 'app-left-side-nav-bar',
   templateUrl: './left-side-nav-bar.component.html',
@@ -15,7 +16,8 @@ import {faHome, faLaptopHouse, faUser} from '@fortawesome/free-solid-svg-icons';
       })),
       transition('true => false', animate('500ms')),
       transition('false => true', animate('500ms'))
-    ])
+    ]),
+    fader
   ]
 })
 export class LeftSideNavBarComponent implements OnInit {
@@ -31,6 +33,10 @@ export class LeftSideNavBarComponent implements OnInit {
   title!: string;
 
   ngOnInit(): void {
+  }
+
+  getRouteAnimationData(oulet: RouterOutlet) {
+    return oulet && oulet.activatedRouteData && oulet.activatedRouteData['animation'];
   }
 
 }
