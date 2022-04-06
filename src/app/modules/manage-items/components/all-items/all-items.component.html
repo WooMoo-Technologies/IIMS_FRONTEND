@@ -27,6 +27,9 @@
     <div>
 
       <table class="form-table" mat-table [dataSource]="dataSource" matSort>
+        <div class="loader" *ngIf="loader">
+          <div class="bar"></div>
+        </div>
         <!-- Action Column -->
         <ng-container matColumnDef="componetName" >
           <th mat-header-cell *matHeaderCellDef class="form-table-header">Component Name</th>

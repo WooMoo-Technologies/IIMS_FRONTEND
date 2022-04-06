@@ -16,7 +16,9 @@ export class ItemsService {
 
 
   addComponent(componentdto: componentDTO, imageURL:any): Observable<any> {
-
+    console.log("add component")
+    console.log(imageURL)
+    console.log(imageURL.name)
 
     const formData: any = new FormData();
 

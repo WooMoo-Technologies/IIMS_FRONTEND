@@ -65,13 +65,19 @@ export class UpdateItemsComponent implements OnInit {
       componetCode: this.data.componetCode,
     });
   }
+  fileDatas!: File;
 
-  uploadFile(event: Event) {
-    const file = (event.target as HTMLInputElement)?.files?.[0].name;
-    console.log(file)
-    this.fileObj=((event.target as HTMLInputElement)?.files?.[0])
 
-  };
+  uploadFile(fileInput: any) {
+    this.fileDatas = <File>fileInput.target.files[0];
+  }
+
+  // uploadFile(event: Event) {
+  //   const file = (event.target as HTMLInputElement)?.files?.[0].name;
+  //   console.log(file)
+  //   this.fileObj=((event.target as HTMLInputElement)?.files?.[0])
+  //
+  // };
 
 
   saveItemss() {
@@ -83,7 +89,7 @@ export class UpdateItemsComponent implements OnInit {
       this.UpdateItemsFrom.get('qty')?.value,
       this.UpdateItemsFrom.get('unitPrice')?.value,
       this.UpdateItemsFrom.get('componetCode')?.value
-    ),this.fileObj).subscribe(res=>{
+    ),this.fileDatas).subscribe(res=>{
       console.log(res)
       if (res.responseCode==='200'){
         this.dialogRef.close();
