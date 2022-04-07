@@ -40,6 +40,8 @@ export class AllItemsComponent implements OnInit {
   pageSizeOptions!: number[];
   pageCount = 0;
 
+  loader = true;
+
   constructor(public dialog: MatDialog,
               private itemsservice:ItemsService) {
     this.dataSource = new MatTableDataSource(this.components);
@@ -100,6 +102,7 @@ export class AllItemsComponent implements OnInit {
     this.allComponentsSub = this.itemsservice.getAllComponents(pageIndex, pageSize)
       // .pipe(timeout(4000))
       .subscribe(result => {
+        this.loader = false;
         console.log(result.content)
         this.paginator.length = result.content.length;
         this.dataSource = result.content;
@@ -113,6 +116,7 @@ export class AllItemsComponent implements OnInit {
     this.searchComponentsSub = this.itemsservice.searchComponent(searchKeyWord)
       .pipe(timeout(4000))
       .subscribe(result => {
+        this.loader = false;
         console.log(result.content)
         this.paginator.length = result.content.length;
         this.dataSource = result.content;
@@ -135,6 +139,7 @@ export class AllItemsComponent implements OnInit {
     console.log('----------------------------');
     const dialogRef = this.dialog.open(UpdateItemsComponent, dialogConfig);
     dialogRef.afterClosed().subscribe(result => {
+      this.loader = false;
       console.log("response code1")
       console.log(result)
       console.log("response code2")
@@ -149,6 +154,7 @@ export class AllItemsComponent implements OnInit {
     });
     approval.afterClosed().subscribe(approve => {
       if (approve) {
+        this.loader = false;
         console.log(approve)
         this.itemsservice.deleteComponent(row.componetID).subscribe(res => {
           console.log(res);
@@ -162,6 +168,7 @@ export class AllItemsComponent implements OnInit {
         });
         approval4.afterClosed().subscribe(approve => {
           if (approve) {
+            this.loader = false;
             this.refreshTable();
 
           }

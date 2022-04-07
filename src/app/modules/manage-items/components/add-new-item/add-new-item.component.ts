@@ -80,16 +80,29 @@ export class AddNewItemComponent implements OnInit {
         this.refreshTable();
 
       });
+
   }
 
-  uploadFile(event: Event) {
-    const file = (event.target as HTMLInputElement)?.files?.[0].name;
-    console.log(file)
-    this.fileObj=((event.target as HTMLInputElement)?.files?.[0])
+  fileDatas!: File;
+  previewUrl!: null;
+  fileUploadProgress!: string ;
+  uploadedFilePath!: string ;
 
-  };
+  uploadFile(fileInput: any) {
+    this.fileDatas = <File>fileInput.target.files[0];
+  }
+
+  // uploadFile(event: Event) {
+  //   const file = (event.target as HTMLInputElement)?.files?.[0].name;
+  //   console.log(file)
+  //   this.fileObj=((event.target as HTMLInputElement)?.files?.[0])
+  //
+  // };
 
   saveItem() {
+    console.log("this.fileDatas")
+    console.log(this.fileDatas)
+    console.log("this.fileDatas")
     this.itemsservice.addComponent(new componentDTO(
       this.itemDetailsForm.get('componetName')?.value,
       this.itemDetailsForm.get('componetDesc')?.value,
@@ -97,7 +110,7 @@ export class AddNewItemComponent implements OnInit {
       this.itemDetailsForm.get('qty')?.value,
       this.itemDetailsForm.get('unitPrice')?.value,
       this.itemDetailsForm.get('componetCode')?.value
-    ),this.fileObj).subscribe(res=>{
+    ),this.fileDatas).subscribe(res=>{
       console.log(res)
       if (res.responseCode==='200'){
         console.log("sucess")
